@@ -1,0 +1,40 @@
+{
+	"name": "is_polindrome",
+	"alphabet": ["a", "b", "c", "d", "e", "f", "g", "."],
+	"blank": ".",
+	"states": ["find_letter", "a", "b", "c", "d", "e", "f", "g", "stop"],
+	"initial": ["find_letter"],
+	"finals": ["stop"],
+
+	"transitions": {
+		"find_letter": [
+			{"read": ".", "to_state": "find_letter", "write": ".", "action": "RIGHT"},
+			{"read": "a", "to_state": "go_to_end_a", "write": "+", "action": "RIGHT"},
+			{"read": "b", "to_state": "go_to_end", "write": "+", "action": "RIGHT"},
+			{"read": "c", "to_state": "go_to_end", "write": "+", "action": "RIGHT"},
+			{"read": "d", "to_state": "go_to_end", "write": "+", "action": "RIGHT"}
+		],
+		"go_to_end_a": [
+			{"read": ".", "to_state": "find_pair_a", "write": ".", "action": "LEFT"},
+			{"read": "+", "to_state": "find_pair_a", "write": ".", "action": "LEFT"},
+			{"read": "a", "to_state": "go_to_end_a", "write": "a", "action": "RIGHT"},
+			{"read": "b", "to_state": "go_to_end_a", "write": "b", "action": "RIGHT"},
+			{"read": "c", "to_state": "go_to_end_a", "write": "c", "action": "RIGHT"},
+			{"read": "d", "to_state": "go_to_end_a", "write": "d", "action": "RIGHT"}
+			
+		],
+		"find_pair_a": [
+			{"read": "a", "to_state": "find_letter", "write": "+", "action": "LEFT"},
+			{"read": "b", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "c", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "d", "to_state": "not_polindrome", "write": "N", "action": "LEFT"}
+		],
+		"not_polindrome": [
+			{"read": ".", "to_state": "STOP", "write": ".", "action": "LEFT"},
+			{"read": "a", "to_state": "STOP", "write": "+", "action": "LEFT"},
+			{"read": "b", "to_state": "STOP", "write": "+", "action": "LEFT"},
+			{"read": "c", "to_state": "STOP", "write": "+", "action": "LEFT"},
+			{"read": "d", "to_state": "STOP", "write": "+", "action": "LEFT"}
+		]
+	}
+}
