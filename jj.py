@@ -25,6 +25,25 @@ import json
 # for x in some_data:
 # 	print(x)
 
+# "check_finish": [
+# 			{"read": ".", "to_state": "show_result",  "write": ".", "action": "LEFT"},
+# 			{"read": "+", "to_state": "go_to_start", "write": "+", "action": "LEFT"},
+# 			{"read": "a", "to_state": "to_begining", "write": "a", "action": "LEFT"},
+# 			{"read": "b", "to_state": "to_begining", "write": "b", "action": "LEFT"},
+# 			{"read": "c", "to_state": "to_begining", "write": "c", "action": "LEFT"},
+# 			{"read": "d", "to_state": "to_begining", "write": "d", "action": "LEFT"}
+# 		],
+
+
+"show_result": [
+			{"read": ".", "to_state": "finish", 	 "write": "Y", "action": "RIGHT"},
+			{"read": "+", "to_state": "show_result", "write": "Y", "action": "RIGHT"},
+			{"read": "a", "to_state": "show_result", "write": "Y", "action": "RIGHT"},
+			{"read": "b", "to_state": "show_result", "write": "Y", "action": "RIGHT"},
+			{"read": "c", "to_state": "show_result", "write": "Y", "action": "RIGHT"},
+			{"read": "d", "to_state": "show_result", "write": "Y", "action": "RIGHT"}
+		],
+
 class Jelmer:
 	my_name = "heer jelmer"
 	

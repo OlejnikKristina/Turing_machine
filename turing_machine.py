@@ -6,7 +6,7 @@
 #    By: krioliin <krioliin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/20 13:21:33 by krioliin       #+#    #+#                 #
-#    Updated: 2019/10/21 14:14:49 by krioliin      ########   odam.nl          #
+#    Updated: 2019/10/21 15:49:15 by krioliin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,8 @@ class TuringMachine:
 		self.head = head
 
 def instruct_position(command, state):
-
 	instructions_in_state = len(state)
 	num = 0
-
 	while num < instructions_in_state:
 		if state[num]["read"] == command:
 			return num
@@ -45,7 +43,7 @@ def instruct_position(command, state):
 def init_turing_machine(command, machine_desc):
 
 	current_state_name = machine_desc["initial"]
-	# current_state_name = ''.join(current_state_name)
+	current_state_name = ''.join(current_state_name)
 	
 	# print("current_state_name: ", current_state_name)
 	# print("current_state: ", machine_desc["transitions"]["find_letter"])
@@ -65,7 +63,6 @@ def display_tape(commands, head):
 	MAGENTA = '\033[1;35;10m'
 	commands_len = len(commands)
 	i = 0
-
 	print(BLUE, '[', sep='', end='')
 	while (i < commands_len):
 		if i != head:
@@ -111,11 +108,10 @@ def run_turing_machine(machine, commands, machine_desc):
 def set_turing_machine(command, machine_desc):
 	i = 0
 	machine = init_turing_machine(command, machine_desc)
-	# command = command.rjust(len(command) + 1, '.')
+	command = command.rjust(len(command) + 1, '.')
 	command = command.ljust(len(command) * 2, '.')
 	while i < 1000:
-		display_tape(command, machine.head)
-		#display_current_condition(machine)
 		command = run_turing_machine(machine, command, machine_desc)
+		display_tape(command, machine.head)
 		i += 1
 	
