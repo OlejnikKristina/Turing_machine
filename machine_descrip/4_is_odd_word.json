@@ -1,5 +1,6 @@
 {
-	"name" : "unary_add",
+	"name" : "is_odd_word",
+	"description": "If word has odd numbers of characters, program display - 'Y', otherwise - 'N",
 	"alphabet": [ "0", "." ],
 	"blank" : ".",
 	"states" : [ "start", "odd", "even", "finish", "finish", "STOP" ],

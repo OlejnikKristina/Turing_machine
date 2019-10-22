@@ -1,5 +1,6 @@
 {
 	"name": "is_polindrome",
+	"description" : "If word is polindrome, program displays 'Y' otherwise 'N'",
 	"alphabet": ["a", "b", "c", "d", "e", "."],
 	"blank": ".",
 	"states": ["find_letter","stop","finish","go_to_start","check_finish","to_begining",

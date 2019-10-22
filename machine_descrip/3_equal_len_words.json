@@ -1,5 +1,6 @@
 {
 	"name": 	"equal_len_words",
+	"description": "If bouth words have same lengh and same characters, programm displays -'Y', otherwise -'N'",
 	"alphabet": [".", "0", "1"],
 	"blank":	".",
 	"states":	["init", "go_right_1", "go_right_0", "back_1", "back_0",

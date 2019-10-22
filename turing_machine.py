@@ -6,7 +6,7 @@
 #    By: krioliin <krioliin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/20 13:21:33 by krioliin       #+#    #+#                 #
-#    Updated: 2019/10/22 13:03:47 by krioliin      ########   odam.nl          #
+#    Updated: 2019/10/22 20:21:37 by krioliin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,17 +40,15 @@ def instruct_position(command, state):
 		num += 1
 
 def init_turing_machine(command, machine_desc):
-
 	current_state_name = machine_desc["initial"]
 	current_state_name = ''.join(current_state_name)
 	current_state = machine_desc["transitions"][current_state_name]
 	instruct_pos = instruct_position(command[0], current_state)
 	move_to = current_state[instruct_pos]["action"]
-	machine = TuringMachine(current_state, current_state_name, command[0], move_to, 0)
+	machine = TuringMachine(current_state, current_state_name, command[0], move_to, 1)
 	return machine
 
 def display_tape(commands, head):
-
 	BLUE = '\033[1;34;10m'
 	WHITE = '\033[1;37;10m'
 	MAGENTA = '\033[1;35;10m'
@@ -77,8 +75,6 @@ def execute_commands(commands, head, char_to_put):
 def run_turing_machine(machine, commands, machine_desc):
 
 	final = ''.join(machine_desc["finals"])
-
-	# machine_desc["transitions"]["scanright"][0]
 	instruct_pos = instruct_position(commands[machine.head], machine.state)
 	machine.character =  machine.state[instruct_pos]["write"]
 	machine.moving = machine.state[instruct_pos]["action"]
@@ -87,9 +83,7 @@ def run_turing_machine(machine, commands, machine_desc):
 		display_next_condition(machine)
 		sys.exit() 
 	machine.state = machine_desc["transitions"][machine.state_name]
-
 	display_next_condition(machine)
-
 	refreshed_commands = execute_commands(commands, machine.head, machine.character)
 	if machine.moving == "RIGHT":
 		machine.head += 1
