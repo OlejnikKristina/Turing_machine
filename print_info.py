@@ -6,7 +6,7 @@
 #    By: krioliin <krioliin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/20 13:21:33 by krioliin       #+#    #+#                 #
-#    Updated: 2019/10/21 20:18:16 by krioliin      ########   odam.nl          #
+#    Updated: 2019/10/22 14:21:53 by krioliin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,4 +27,4 @@ def print_info(machine_descript):
 		i += 1
 	print('\n', BLUE, "Initial : ", WHITE, machine_descript["initial"], sep='')
 	print(BLUE, "Finals  : ", WHITE, machine_descript["finals"], sep='')
-	print('\n' + 80 * '* ' + '\n')
+	print('\n' + 50 * '* ' + '\n')
