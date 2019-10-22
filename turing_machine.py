@@ -6,7 +6,7 @@
 #    By: krioliin <krioliin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/20 13:21:33 by krioliin       #+#    #+#                 #
-#    Updated: 2019/10/22 22:26:32 by krioliin      ########   odam.nl          #
+#    Updated: 2019/10/22 22:31:14 by krioliin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,4 +109,3 @@ def set_turing_machine(command, machine_desc):
 		command = run_turing_machine(machine, command, machine_desc)
 		display_tape(command, machine.head)
 		i += 1
-	
