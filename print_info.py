@@ -6,7 +6,7 @@
 #    By: krioliin <krioliin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/20 13:21:33 by krioliin       #+#    #+#                 #
-#    Updated: 2019/10/22 22:07:19 by krioliin      ########   odam.nl          #
+#    Updated: 2019/10/22 22:18:13 by krioliin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,11 @@ def print_info(machine_descript):
 	MAGENTA = '\033[1;35;10m'
 	i = 0
 	print_header(machine_descript["name"])
-	if machine_descript["description"]:
-		print_description(machine_descript["description"])
+	try:
+		if machine_descript["description"]:
+			print_description(machine_descript["description"])
+	except:
+		print()
 	print(BLUE, "Alphabet: ", WHITE, machine_descript["alphabet"], sep='')
 	print(BLUE, "States :  ", WHITE, sep='', end='')
 	for state in machine_descript["states"]:

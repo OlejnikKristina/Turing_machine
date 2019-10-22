@@ -6,7 +6,7 @@
 #    By: krioliin <krioliin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/20 13:21:33 by krioliin       #+#    #+#                 #
-#    Updated: 2019/10/22 20:21:37 by krioliin      ########   odam.nl          #
+#    Updated: 2019/10/22 22:26:32 by krioliin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,9 @@ def display_tape(commands, head):
 	print(BLUE, '] ', WHITE, sep='', end='')
 
 def execute_commands(commands, head, char_to_put):
+	if head < -1:
+		print("Automat/head out of instructions")
+		sys.exit()
 	if commands[head] == char_to_put:
 		return commands
 	else:
@@ -71,6 +74,14 @@ def execute_commands(commands, head, char_to_put):
 		refreshed_commands[head] = char_to_put
 		refreshed_commands = ''.join(refreshed_commands)
 		return refreshed_commands
+
+def move_head(machine):
+	if machine.moving == "RIGHT": machine.head += 1
+	elif machine.moving == "LEFT": machine.head -= 1
+	else:sys.exit()
+	if machine.head <= 0:
+		print("Automat/head out of instructions")
+		sys.exit()
 
 def run_turing_machine(machine, commands, machine_desc):
 
@@ -85,12 +96,7 @@ def run_turing_machine(machine, commands, machine_desc):
 	machine.state = machine_desc["transitions"][machine.state_name]
 	display_next_condition(machine)
 	refreshed_commands = execute_commands(commands, machine.head, machine.character)
-	if machine.moving == "RIGHT":
-		machine.head += 1
-	elif machine.moving == "LEFT":
-		machine.head -= 1
-	else:
-		sys.exit()
+	move_head(machine)
 	return refreshed_commands
 
 def set_turing_machine(command, machine_desc):
