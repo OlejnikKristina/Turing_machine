@@ -6,7 +6,7 @@
 #    By: krioliin <krioliin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/20 13:21:33 by krioliin       #+#    #+#                 #
-#    Updated: 2019/10/21 16:43:12 by krioliin      ########   odam.nl          #
+#    Updated: 2019/10/21 18:30:46 by krioliin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ def get_params():
 def main():
 	args = get_params()
 	machine_descript = data_validation(args)
-	# print_info(machine_descript)
+	print_info(machine_descript)
 	set_turing_machine(args.commands, machine_descript)
 
 main()

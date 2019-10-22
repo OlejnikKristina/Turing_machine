@@ -1,10 +1,10 @@
 {
 	"name": "is_polindrome",
-	"alphabet": ["a", "b", "c", "d", "e", "f", "g", "."],
+	"alphabet": ["a", "b", "c", "d", "e", "."],
 	"blank": ".",
-	"states": ["find_letter", "stop", "finish", "go_to_start", "check_finish", "to_begining",
-			"show_result_two", "find_pair_a", "find_pair_b", "find_pair_c", "find_pair_d",
-			"go_to_end_a", "go_to_end_b", "go_to_end_c", "go_to_end_d"],
+	"states": ["find_letter","stop","finish","go_to_start","check_finish","to_begining",
+			"show_result_two","find_pair_a","find_pair_b","find_pair_c","find_pair_d","find_pair_e",
+			"go_to_end_a", "go_to_end_b", "go_to_end_c", "go_to_end_d", "go_to_end_e"],
 	"initial": ["find_letter"],
 	"finals": ["stop"],
 
@@ -15,7 +15,8 @@
 			{"read": "a", "to_state": "go_to_end_a", "write": "+", "action": "RIGHT"},
 			{"read": "b", "to_state": "go_to_end_b", "write": "+", "action": "RIGHT"},
 			{"read": "c", "to_state": "go_to_end_c", "write": "+", "action": "RIGHT"},
-			{"read": "d", "to_state": "go_to_end_d", "write": "+", "action": "RIGHT"}
+			{"read": "d", "to_state": "go_to_end_d", "write": "+", "action": "RIGHT"},
+			{"read": "e", "to_state": "go_to_end_e", "write": "+", "action": "RIGHT"}
 		],
 		"to_begining": [
 			{"read": ".", "to_state": "find_letter", "write": ".", "action": "RIGHT"},
@@ -23,7 +24,8 @@
 			{"read": "a", "to_state": "to_begining", "write": "a", "action": "LEFT"},
 			{"read": "b", "to_state": "to_begining", "write": "b", "action": "LEFT"},
 			{"read": "c", "to_state": "to_begining", "write": "c", "action": "LEFT"},
-			{"read": "d", "to_state": "to_begining", "write": "d", "action": "LEFT"}
+			{"read": "d", "to_state": "to_begining", "write": "d", "action": "LEFT"},
+			{"read": "e", "to_state": "to_begining", "write": "e", "action": "LEFT"}
 		],
 		"go_to_start": [
 			{"read": ".", "to_state": "show_result",  "write": ".", "action": "RIGHT"},
@@ -31,7 +33,8 @@
 			{"read": "a", "to_state": "go_to_start", "write": "a", "action": "LEFT"},
 			{"read": "b", "to_state": "go_to_start", "write": "b", "action": "LEFT"},
 			{"read": "c", "to_state": "go_to_start", "write": "c", "action": "LEFT"},
-			{"read": "d", "to_state": "go_to_start", "write": "d", "action": "LEFT"}
+			{"read": "d", "to_state": "go_to_start", "write": "d", "action": "LEFT"},
+			{"read": "e", "to_state": "go_to_start", "write": "e", "action": "LEFT"}
 		],
 		"check_finish": [
 			{"read": ".", "to_state": "show_result",  "write": ".", "action": "LEFT"},
@@ -39,7 +42,8 @@
 			{"read": "a", "to_state": "check_finish_two", "write": "a", "action": "LEFT"},
 			{"read": "b", "to_state": "check_finish_two", "write": "b", "action": "LEFT"},
 			{"read": "c", "to_state": "check_finish_two", "write": "c", "action": "LEFT"},
-			{"read": "d", "to_state": "check_finish_two", "write": "d", "action": "LEFT"}
+			{"read": "d", "to_state": "check_finish_two", "write": "d", "action": "LEFT"},
+			{"read": "e", "to_state": "check_finish_two", "write": "e", "action": "LEFT"}
 		],
 		"check_finish_two": [
 			{"read": ".", "to_state": "show_result",  "write": ".", "action": "LEFT"},
@@ -47,7 +51,8 @@
 			{"read": "a", "to_state": "to_begining", "write": "a", "action": "LEFT"},
 			{"read": "b", "to_state": "to_begining", "write": "b", "action": "LEFT"},
 			{"read": "c", "to_state": "to_begining", "write": "c", "action": "LEFT"},
-			{"read": "d", "to_state": "to_begining", "write": "d", "action": "LEFT"}
+			{"read": "d", "to_state": "to_begining", "write": "d", "action": "LEFT"},
+			{"read": "e", "to_state": "to_begining", "write": "e", "action": "LEFT"}
 		],
 		"show_result": [
 			{"read": ".", "to_state": "finish", 	 	"write": "Y", "action": "RIGHT"},
@@ -55,7 +60,8 @@
 			{"read": "a", "to_state": "show_result_two", "write": "Y", "action": "RIGHT"},
 			{"read": "b", "to_state": "show_result_two", "write": "Y", "action": "RIGHT"},
 			{"read": "c", "to_state": "show_result_two", "write": "Y", "action": "RIGHT"},
-			{"read": "d", "to_state": "show_result_two", "write": "Y", "action": "RIGHT"}
+			{"read": "d", "to_state": "show_result_two", "write": "Y", "action": "RIGHT"},
+			{"read": "e", "to_state": "show_result_two", "write": "Y", "action": "RIGHT"}
 		],
 		"show_result_two": [
 			{"read": ".", "to_state": "finish", 	 	"write": "Y", "action": "RIGHT"},
@@ -63,7 +69,8 @@
 			{"read": "a", "to_state": "not_polindrome", "write": "N", "action": "RIGHT"},
 			{"read": "b", "to_state": "not_polindrome", "write": "N", "action": "RIGHT"},
 			{"read": "c", "to_state": "not_polindrome", "write": "N", "action": "RIGHT"},
-			{"read": "d", "to_state": "not_polindrome", "write": "N", "action": "RIGHT"}
+			{"read": "d", "to_state": "not_polindrome", "write": "N", "action": "RIGHT"},
+			{"read": "e", "to_state": "not_polindrome", "write": "N", "action": "RIGHT"}
 		],
 		"not_polindrome": [
 			{"read": ".", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
@@ -71,6 +78,7 @@
 			{"read": "b", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "c", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "d", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "e", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "+", "to_state": "finish",			"write": "N", "action": "LEFT"}
 		],
 		"finish": [
@@ -81,7 +89,8 @@
 			{"read": "a", "to_state": "stop", "write": "N", "action": "LEFT"},
 			{"read": "b", "to_state": "stop", "write": "N", "action": "LEFT"},
 			{"read": "c", "to_state": "stop", "write": "N", "action": "LEFT"},
-			{"read": "d", "to_state": "stop", "write": "N", "action": "LEFT"}
+			{"read": "d", "to_state": "stop", "write": "N", "action": "LEFT"},
+			{"read": "e", "to_state": "stop", "write": "N", "action": "LEFT"}
 		],
 
 
@@ -91,6 +100,7 @@
 			{"read": "b", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "c", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "d", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "e", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": ".", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "+", "to_state": "not_polindrome", "write": "N", "action": "LEFT"}
 		],
@@ -99,6 +109,7 @@
 			{"read": "a", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "c", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "d", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "e", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": ".", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "+", "to_state": "not_polindrome", "write": "N", "action": "LEFT"}
 		],
@@ -107,6 +118,7 @@
 			{"read": "a", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "b", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "d", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "e", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": ".", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "+", "to_state": "not_polindrome", "write": "N", "action": "LEFT"}
 		],
@@ -115,6 +127,16 @@
 			{"read": "a", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "b", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "c", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "e", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": ".", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "+", "to_state": "not_polindrome", "write": "N", "action": "LEFT"}
+		],
+		"find_pair_e": [
+			{"read": "e", "to_state": "check_finish", 	"write": "+", "action": "LEFT"},
+			{"read": "a", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "b", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "c", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
+			{"read": "d", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": ".", "to_state": "not_polindrome", "write": "N", "action": "LEFT"},
 			{"read": "+", "to_state": "not_polindrome", "write": "N", "action": "LEFT"}
 		],
@@ -127,7 +149,8 @@
 			{"read": "a", "to_state": "go_to_end_a", "write": "a", "action": "RIGHT"},
 			{"read": "b", "to_state": "go_to_end_a", "write": "b", "action": "RIGHT"},
 			{"read": "c", "to_state": "go_to_end_a", "write": "c", "action": "RIGHT"},
-			{"read": "d", "to_state": "go_to_end_a", "write": "d", "action": "RIGHT"}
+			{"read": "d", "to_state": "go_to_end_a", "write": "d", "action": "RIGHT"},
+			{"read": "e", "to_state": "go_to_end_e", "write": "e", "action": "RIGHT"}
 			
 		],
 		"go_to_end_b": [
@@ -136,7 +159,8 @@
 			{"read": "a", "to_state": "go_to_end_b", "write": "a", "action": "RIGHT"},
 			{"read": "b", "to_state": "go_to_end_b", "write": "b", "action": "RIGHT"},
 			{"read": "c", "to_state": "go_to_end_b", "write": "c", "action": "RIGHT"},
-			{"read": "d", "to_state": "go_to_end_b", "write": "d", "action": "RIGHT"}
+			{"read": "d", "to_state": "go_to_end_b", "write": "d", "action": "RIGHT"},
+			{"read": "e", "to_state": "go_to_end_e", "write": "e", "action": "RIGHT"}
 			
 		],
 		"go_to_end_c": [
@@ -145,7 +169,8 @@
 			{"read": "a", "to_state": "go_to_end_c", "write": "a", "action": "RIGHT"},
 			{"read": "b", "to_state": "go_to_end_c", "write": "b", "action": "RIGHT"},
 			{"read": "c", "to_state": "go_to_end_c", "write": "c", "action": "RIGHT"},
-			{"read": "d", "to_state": "go_to_end_c", "write": "d", "action": "RIGHT"}
+			{"read": "d", "to_state": "go_to_end_c", "write": "d", "action": "RIGHT"},
+			{"read": "e", "to_state": "go_to_end_e", "write": "e", "action": "RIGHT"}
 			
 		],
 		"go_to_end_d": [
@@ -154,7 +179,17 @@
 			{"read": "a", "to_state": "go_to_end_d", "write": "a", "action": "RIGHT"},
 			{"read": "b", "to_state": "go_to_end_d", "write": "b", "action": "RIGHT"},
 			{"read": "c", "to_state": "go_to_end_d", "write": "c", "action": "RIGHT"},
-			{"read": "d", "to_state": "go_to_end_d", "write": "d", "action": "RIGHT"}
+			{"read": "d", "to_state": "go_to_end_d", "write": "d", "action": "RIGHT"},
+			{"read": "e", "to_state": "go_to_end_e", "write": "e", "action": "RIGHT"}
+		],
+		"go_to_end_e": [
+			{"read": ".", "to_state": "find_pair_e", "write": ".", "action": "LEFT"},
+			{"read": "+", "to_state": "find_pair_e", "write": ".", "action": "LEFT"},
+			{"read": "a", "to_state": "go_to_end_e", "write": "a", "action": "RIGHT"},
+			{"read": "b", "to_state": "go_to_end_e", "write": "b", "action": "RIGHT"},
+			{"read": "c", "to_state": "go_to_end_e", "write": "c", "action": "RIGHT"},
+			{"read": "d", "to_state": "go_to_end_e", "write": "d", "action": "RIGHT"},
+			{"read": "e", "to_state": "go_to_end_e", "write": "e", "action": "RIGHT"}
 		]
 		
 	}

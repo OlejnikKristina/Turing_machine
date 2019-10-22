@@ -6,7 +6,7 @@
 #    By: krioliin <krioliin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/20 13:21:33 by krioliin       #+#    #+#                 #
-#    Updated: 2019/10/21 12:44:56 by krioliin      ########   odam.nl          #
+#    Updated: 2019/10/22 13:03:00 by krioliin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ def check_user_input(commands, machine_descript):
 	for command_char in commands:
 		counter = False
 		for alphabet_char in machine_descript["alphabet"]:
-			if command_char == alphabet_char:
+			if command_char == alphabet_char and machine_descript["blank"] != command_char:
 				counter = True
 		if counter == False:
 			print("Turing machin doesn't support given instructions")

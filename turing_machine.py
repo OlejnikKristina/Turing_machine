@@ -6,7 +6,7 @@
 #    By: krioliin <krioliin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/20 13:21:33 by krioliin       #+#    #+#                 #
-#    Updated: 2019/10/21 15:49:15 by krioliin      ########   odam.nl          #
+#    Updated: 2019/10/22 13:03:47 by krioliin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,19 +39,12 @@ def instruct_position(command, state):
 			return num
 		num += 1
 
-
 def init_turing_machine(command, machine_desc):
 
 	current_state_name = machine_desc["initial"]
 	current_state_name = ''.join(current_state_name)
-	
-	# print("current_state_name: ", current_state_name)
-	# print("current_state: ", machine_desc["transitions"]["find_letter"])
 	current_state = machine_desc["transitions"][current_state_name]
-
-
 	instruct_pos = instruct_position(command[0], current_state)
-
 	move_to = current_state[instruct_pos]["action"]
 	machine = TuringMachine(current_state, current_state_name, command[0], move_to, 0)
 	return machine
@@ -83,18 +76,20 @@ def execute_commands(commands, head, char_to_put):
 
 def run_turing_machine(machine, commands, machine_desc):
 
-	stop_blank = ''.join(machine_desc["finals"])
+	final = ''.join(machine_desc["finals"])
 
+	# machine_desc["transitions"]["scanright"][0]
 	instruct_pos = instruct_position(commands[machine.head], machine.state)
 	machine.character =  machine.state[instruct_pos]["write"]
 	machine.moving = machine.state[instruct_pos]["action"]
 	machine.state_name = machine.state[instruct_pos]["to_state"]
-	if machine.state_name == stop_blank:
+	if machine.state_name == final:
 		display_next_condition(machine)
 		sys.exit() 
 	machine.state = machine_desc["transitions"][machine.state_name]
 
 	display_next_condition(machine)
+
 	refreshed_commands = execute_commands(commands, machine.head, machine.character)
 	if machine.moving == "RIGHT":
 		machine.head += 1
@@ -104,13 +99,13 @@ def run_turing_machine(machine, commands, machine_desc):
 		sys.exit()
 	return refreshed_commands
 
-
 def set_turing_machine(command, machine_desc):
 	i = 0
 	machine = init_turing_machine(command, machine_desc)
 	command = command.rjust(len(command) + 1, '.')
 	command = command.ljust(len(command) * 2, '.')
-	while i < 1000:
+	display_tape(command, machine.head)
+	while i < 10000:
 		command = run_turing_machine(machine, command, machine_desc)
 		display_tape(command, machine.head)
 		i += 1
